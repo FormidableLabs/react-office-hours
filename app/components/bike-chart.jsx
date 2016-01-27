@@ -39,17 +39,23 @@ const BikeChart = React.createClass({
   },
 
   render() {
+    const { scrollWidth } = document.body;
+    const chartWidth = scrollWidth - scrollWidth * 0.1;
     return (
       <div>
         <VictoryChart
           height={450}
+          width={chartWidth}
           scale={{
             x: d3Scale.time()
           }}
           >
           <VictoryAxis
             label='Date'
-            tickFormat={(x) => moment(x).format('YYYY-MM-DD')}/>
+            style={{
+              axisLabel: {padding: 35}
+            }}
+            tickFormat={(x) => moment(x).format('YYYY-MM-DD')+ "\n" + moment(x).format('hA')}/>
           <VictoryLine
             data={this.state.data}/>
         </VictoryChart>
