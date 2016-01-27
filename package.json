@@ -19,7 +19,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "radium": "^0.16.4",
+    "d3-scale": "^0.5.2",
+    "moment": "^2.11.1",
+    "radium": "^0.16.5",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "victory": "^0.3.0"
