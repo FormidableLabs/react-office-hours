@@ -1,42 +1,47 @@
-import d3Scale from 'd3-scale';
+require('react-datepicker/dist/react-datepicker.css');
+import DatePicker from 'react-datepicker';
+
 import moment from 'moment';
 import React from 'react';
-import { VictoryChart, VictoryAxis, VictoryLine } from 'victory';
 
-import data from '../data';
+import BikeChart from './bike-chart';
 
-function mapData() {
-  return data.map((datum) => {
-    return {
-      x: new Date(datum.date),
-      y: Number(datum.fremont_bridge_nb) + Number(datum.fremont_bridge_sb)
-    };
-  });
-}
-
-console.table(mapData())
 
 const App = React.createClass({
-  componentWillMount() {},
+
+  getInitialState() {
+    return {
+      fromDate: moment().subtract(1, 'year').subtract(7, 'days'),
+      toDate: moment().subtract(1, 'year')
+    }
+  },
+
+  onFromDateChanged(date) {
+    this.setState({
+      fromDate: date
+    });
+  },
+
+  onToDateChanged(date) {
+    this.setState({
+      toDate: date
+    });
+  },
 
   render() {
     return (
       <div>
         <h1>Fremont Bicycle Traffic</h1>
 
-        <VictoryChart
-          height={450}
-          scale={{
-            x: d3Scale.scaleTime(),
-            y: d3Scale.scaleLinear()
-          }}>
-          <VictoryAxis
-            label="Date"
-            tickFormat={(x) => moment(x).format('YYYY-MM-DD')}/>
-          <VictoryLine
-            data={mapData()}/>
-        </VictoryChart>
+        <DatePicker
+          selected={this.state.fromDate}
+          onChange={this.onFromDateChanged} />
 
+        <DatePicker
+          selected={this.state.toDate}
+          onChange={this.onToDateChanged} />
+
+        <BikeChart fromDate={this.state.fromDate} toDate={this.state.toDate} />
       </div>
     );
   }
