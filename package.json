@@ -23,5 +23,19 @@
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "victory": "^0.3.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FormidableLabs/react-office-hours.git"
+  },
+  "keywords": [
+    "react",
+    "dataviz",
+    "victory",
+    "javascript"
+  ],
+  "bugs": {
+    "url": "https://github.com/FormidableLabs/react-office-hours/issues"
+  },
+  "homepage": "https://github.com/FormidableLabs/react-office-hours#readme"
 }
