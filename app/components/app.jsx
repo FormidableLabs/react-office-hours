@@ -11,8 +11,8 @@ const App = React.createClass({
 
   getInitialState() {
     return {
-      fromDate: moment().subtract(1, 'year').subtract(7, 'days'),
-      toDate: moment().subtract(1, 'year')
+      fromDate: moment('2015-06-01'),
+      toDate: moment('2015-06-05')
     }
   },
 
