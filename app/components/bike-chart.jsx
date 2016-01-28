@@ -23,7 +23,12 @@ const BikeChart = React.createClass({
 
   update(fromDate, toDate) {
     fetchData(fromDate, toDate)
-      .then((data) => this.setState({ data: data }));
+      .then((data) => this.setState({
+        data: {
+          southBound: data.southBound,
+          northBound: data.northBound
+        }
+      }));
   },
 
   componentDidMount() {
@@ -49,7 +54,8 @@ const BikeChart = React.createClass({
             x: d3Scale.time()
           }}
           padding={{
-            bottom: 100
+            bottom: 100,
+            right: 30
           }}>
 
           <VictoryAxis
@@ -64,13 +70,25 @@ const BikeChart = React.createClass({
 
           <VictoryLine
             interpolation='basis'
+            label='North'
             style={{
               data: {
-                stroke: (datum) => datum.y > 400 ? 'red' : 'grey',
-                strokeWidth: 2
+                strokeWidth: 2,
+                stroke: 'blue'
               }
             }}
-            data={this.state.data}/>
+            data={this.state.data.northBound}/>
+
+          <VictoryLine
+            interpolation='basis'
+            label='South'
+            style={{
+              data: {
+                strokeWidth: 2,
+                stroke: 'green'
+              }
+            }}
+            data={this.state.data.southBound}/>
 
         </VictoryChart>
       </div>

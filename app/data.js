@@ -4,12 +4,20 @@ require('isomorphic-fetch');
 import moment from 'moment';
 
 function mapData(data) {
-  return data.map((datum) => {
-    return {
-      x: new Date(datum.date),
-      y: Number(datum.fremont_bridge_nb) + Number(datum.fremont_bridge_sb)
-    };
-  });
+  return {
+    southBound: data.map((datum) => {
+      return {
+        x: new Date(datum.date),
+        y: Number(datum.fremont_bridge_sb)
+      }
+    }),
+    northBound: data.map((datum) => {
+      return {
+        x: new Date(datum.date),
+        y: Number(datum.fremont_bridge_nb)
+      }
+    })
+  };
 }
 
 function format(date) {
