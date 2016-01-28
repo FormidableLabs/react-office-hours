@@ -25,7 +25,7 @@ function format(date) {
 }
 
 function getUrl(fromDate, toDate) {
-  const baseUrl = 'https://data.seattle.gov/resource/4xy5-26gy.json?$order=date%20ASC';
+  const baseUrl = 'https://data.seattle.gov/resource/4xy5-26gy.json?$order=date%20ASC&$limit=100000';
   return `${baseUrl}&$where=date%20between%20'${format(fromDate)}'%20and%20'${format(toDate)}'`;
 }
 
