@@ -1,5 +1,3 @@
-require('es6-promise').polyfill();
-
 import d3Scale from 'd3-scale';
 import moment from 'moment';
 import React from 'react';
@@ -9,15 +7,20 @@ import { fetchData } from '../data';
 
 const BikeChart = React.createClass({
   getInitialState() {
+    const initialData = [{
+      x: new Date('2015-01-01'),
+      y: 0
+    },
+    {
+      x: new Date('2015-01-02'),
+      y: 0
+    }];
+
     return {
-      data: [{
-        x: '2015-01-01',
-        y: 0
-      },
-      {
-        x: '2015-01-02',
-        y: 0
-      }]
+      data: {
+        northBound: initialData,
+        southBound: initialData
+      }
     };
   },
 
@@ -44,6 +47,7 @@ const BikeChart = React.createClass({
   },
 
   render() {
+
     return (
       <div>
         <VictoryChart
