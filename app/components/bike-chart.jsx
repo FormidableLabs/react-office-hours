@@ -26,9 +26,9 @@ const BikeChart = React.createClass({
       .then((data) => this.setState({ data: data }));
   },
 
-  componentWillMount() {
+  componentDidMount() {
     const { fromDate, toDate } = this.props;
-    this.update()
+    this.update(fromDate, toDate);
   },
 
   componentWillReceiveProps(nextProps) {
@@ -39,13 +39,11 @@ const BikeChart = React.createClass({
   },
 
   render() {
-    const { scrollWidth } = document.body;
-    const chartWidth = scrollWidth - scrollWidth * 0.1;
     return (
       <div>
         <VictoryChart
           height={450}
-          width={chartWidth}
+          width={800}
           scale={{
             x: d3Scale.time()
           }}
