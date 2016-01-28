@@ -12,7 +12,7 @@ const App = React.createClass({
   getInitialState() {
     return {
       fromDate: moment('2015-06-01'),
-      toDate: moment('2015-06-05')
+      numDays: 1
     }
   },
 
@@ -22,9 +22,9 @@ const App = React.createClass({
     });
   },
 
-  onToDateChanged(date) {
+  onNumDaysChanged(ev) {
     this.setState({
-      toDate: date
+      numDays: ev.target.value
     });
   },
 
@@ -36,21 +36,26 @@ const App = React.createClass({
         <h1>Fremont Bicycle Traffic</h1>
 
         <label>
-          <span>From date</span>
+          <span>Date</span>
           <DatePicker
             selected={this.state.fromDate}
             onChange={this.onFromDateChanged} />
         </label>
 
         <label>
-          <span>To date</span>
-          <DatePicker
-            selected={this.state.toDate}
-            onChange={this.onToDateChanged} />
+          <span>Number of days (1-30)</span>
+          <input
+            type="range"
+            min="1"
+            max="30"
+            value={this.state.numDays}
+            onChange={this.onNumDaysChanged} />
         </label>
 
         <section style={{paddingTop: '50px'}}>
-          <BikeChart fromDate={this.state.fromDate} toDate={this.state.toDate} />
+          <BikeChart
+            fromDate={this.state.fromDate}
+            toDate={moment(this.state.fromDate).add(this.state.numDays, 'days')} />
         </section>
 
       </div>
