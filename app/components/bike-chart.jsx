@@ -42,6 +42,7 @@ const BikeChart = React.createClass({
     return (
       <div>
         <VictoryChart
+          animate={{velocity: 0.02}}
           height={450}
           width={800}
           scale={{
