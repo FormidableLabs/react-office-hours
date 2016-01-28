@@ -48,15 +48,30 @@ const BikeChart = React.createClass({
           scale={{
             x: d3Scale.time()
           }}
-          >
+          padding={{
+            bottom: 100
+          }}>
+
           <VictoryAxis
             label='Date'
             style={{
-              axisLabel: {padding: 35}
+              axisLabel: {padding: 55},
+              grid: {stroke: 'gray', opacity: 0.3},
+              ticks: {stroke: 'transparent', padding: 10},
+              tickLabels: {fill: 'blue'}
             }}
-            tickFormat={(x) => moment(x).format('YYYY-MM-DD')+ "\n" + moment(x).format('hA')}/>
+            tickFormat={(x) => moment(x).format('YYYY-MM-DD')+ '\n' + moment(x).format('dddd') + '\n' + moment(x).format('hA')}/>
+
           <VictoryLine
+            interpolation='basis'
+            style={{
+              data: {
+                stroke: (datum) => datum.y > 400 ? 'red' : 'grey',
+                strokeWidth: 2
+              }
+            }}
             data={this.state.data}/>
+
         </VictoryChart>
       </div>
     );

@@ -41,7 +41,10 @@ const App = React.createClass({
           selected={this.state.toDate}
           onChange={this.onToDateChanged} />
 
-        <BikeChart fromDate={this.state.fromDate} toDate={this.state.toDate} />
+        <section style={{paddingTop: '50px'}}>
+          <BikeChart fromDate={this.state.fromDate} toDate={this.state.toDate} />
+        </section>
+
       </div>
     );
   }
