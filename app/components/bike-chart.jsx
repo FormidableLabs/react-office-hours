@@ -24,6 +24,12 @@ const BikeChart = React.createClass({
     };
   },
 
+  formatTicks(x) {
+    return moment(x).format('YYYY-MM-DD') + '\n' +
+      moment(x).format('dddd') + '\n' +
+      moment(x).format('hA')
+  },
+
   update(fromDate, toDate) {
     fetchData(fromDate, toDate)
       .then((data) => this.setState({
@@ -59,7 +65,8 @@ const BikeChart = React.createClass({
           }}
           padding={{
             bottom: 100,
-            right: 30
+            right: 30,
+            left: 50
           }}>
 
           <VictoryAxis
@@ -70,11 +77,11 @@ const BikeChart = React.createClass({
               ticks: {stroke: 'transparent', padding: 10},
               tickLabels: {fill: 'blue'}
             }}
-            tickFormat={(x) => moment(x).format('YYYY-MM-DD')+ '\n' + moment(x).format('dddd') + '\n' + moment(x).format('hA')}/>
+            tickFormat={this.formatTicks}/>
 
           <VictoryLine
             interpolation='basis'
-            label='North'
+            label='Northbound'
             style={{
               data: {
                 strokeWidth: 2,
@@ -85,7 +92,7 @@ const BikeChart = React.createClass({
 
           <VictoryLine
             interpolation='basis'
-            label='South'
+            label='Southbound'
             style={{
               data: {
                 strokeWidth: 2,
