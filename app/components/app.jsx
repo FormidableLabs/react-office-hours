@@ -30,16 +30,24 @@ const App = React.createClass({
 
   render() {
     return (
-      <div>
+      <div style={{
+        font: '12px sans-serif'
+      }}>
         <h1>Fremont Bicycle Traffic</h1>
 
-        <DatePicker
-          selected={this.state.fromDate}
-          onChange={this.onFromDateChanged} />
+        <label>
+          <span>From date</span>
+          <DatePicker
+            selected={this.state.fromDate}
+            onChange={this.onFromDateChanged} />
+        </label>
 
-        <DatePicker
-          selected={this.state.toDate}
-          onChange={this.onToDateChanged} />
+        <label>
+          <span>To date</span>
+          <DatePicker
+            selected={this.state.toDate}
+            onChange={this.onToDateChanged} />
+        </label>
 
         <section style={{paddingTop: '50px'}}>
           <BikeChart fromDate={this.state.fromDate} toDate={this.state.toDate} />
