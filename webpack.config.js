@@ -31,5 +31,5 @@ module.exports = {
       path.join(__dirname, 'app')
     ]
   },
-  devtool: 'sourcemap'
+  devtool: 'inline-sourcemap'
 };
