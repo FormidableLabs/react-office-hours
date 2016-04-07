@@ -6,6 +6,7 @@ import React from 'react';
 
 import BikeChart from './bike-chart';
 
+const MAX_DAYS = 30;
 
 const App = React.createClass({
 
@@ -43,11 +44,11 @@ const App = React.createClass({
         </label>
 
         <label>
-          <span>Number of days (1-30)</span>
+          <span>Number of days (1-{MAX_DAYS})</span>
           <input
             type="range"
             min="1"
-            max="30"
+            max={MAX_DAYS}
             value={this.state.numDays}
             onChange={this.onNumDaysChanged} />
         </label>
