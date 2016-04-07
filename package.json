@@ -28,7 +28,7 @@
     "react": "^0.14.6",
     "react-datepicker": "^0.18.0",
     "react-dom": "^0.14.6",
-    "victory": "^0.3.0"
+    "victory": "^0.5.1"
   },
   "repository": {
     "type": "git",
