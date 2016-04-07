@@ -1,7 +1,7 @@
 import d3Scale from 'd3-scale';
 import moment from 'moment';
 import React from 'react';
-import { VictoryChart, VictoryAxis, VictoryLine } from 'victory';
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryLabel } from 'victory';
 
 import { fetchData } from '../data';
 
@@ -54,12 +54,15 @@ const BikeChart = React.createClass({
 
   render() {
 
+    const chartWidth = 800;
+    const chartHeight = 450;
+
     return (
       <div>
         <VictoryChart
           animate={{velocity: 0.02}}
-          height={450}
-          width={800}
+          height={chartHeight}
+          width={chartWidth}
           scale={{
             x: d3Scale.time()
           }}
@@ -68,6 +71,12 @@ const BikeChart = React.createClass({
             right: 30,
             left: 50
           }}>
+          <VictoryLabel style={{stroke: "blue"}} x={chartWidth - 100} y={10}>
+            Northbound
+          </VictoryLabel>
+          <VictoryLabel style={{stroke: "green"}} x={chartWidth - 100} y={25}>
+            Southbound
+          </VictoryLabel>
 
           <VictoryAxis
             label='Date'
