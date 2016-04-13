@@ -44,7 +44,7 @@ const App = React.createClass({
         </label>
 
         <label>
-          <span>Number of days (1-{MAX_DAYS})</span>
+          <span>Number of days: {this.state.numDays}</span>
           <input
             type="range"
             min="1"
