@@ -37,7 +37,7 @@ const App = React.createClass({
         <h1>Fremont Bicycle Traffic</h1>
 
         <label>
-          <span>Date</span>
+          <span>From date:</span>
           <DatePicker
             selected={this.state.fromDate}
             onChange={this.onFromDateChanged} />
