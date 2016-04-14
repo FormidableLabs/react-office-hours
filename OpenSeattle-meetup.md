@@ -1,0 +1,32 @@
+Visualizing open data with React
+================================
+
+- Who am I?
+  - Per Nilsson
+  - Developer at Formidable in Fremont
+  - Yesterday I went flying!
+- Why React?
+  - Declarative UI
+  - Just a view on your data
+  - Optimized rendering
+  - Hot reloading
+- Open Data
+  - Seattle Open Data: https://data.seattle.gov/
+  - Search: https://data.seattle.gov/browse?q=bicycle
+  - Fremont bicycle count: https://data.seattle.gov/Transportation/Fremont-SB-bicycle-count/aggm-esc4
+  - There's the data. Now what? Download?
+- Socrata APIs!
+  - https://dev.socrata.com/data/
+  - Search: http://www.opendatanetwork.com/search?q=seattle+bicycle
+  - Found it: http://www.opendatanetwork.com/dataset/data.seattle.gov/65db-xm6k
+  - Getting started: https://dev.socrata.com/foundry/data.seattle.gov/4xy5-26gy
+- Test the API
+  - Postman (Chrome extension)
+  - Example request: "https://data.seattle.gov/resource/4xy5-26gy.json?$order=date ASC&$where=date between '2015-01-27T21:18:15' and '2015-01-28T21:18:15'"
+  - Postman will escape those spaces for you
+- Get an App token
+  - Not necessary for testing, but good for app development
+  - https://data.seattle.gov/login
+  - https://data.seattle.gov/profile/Per/ynvf-9q8v/app_tokens
+- OK, I've got access to data. Now what?
+  - Victory: http://victory.formidable.com
